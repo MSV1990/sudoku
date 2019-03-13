@@ -37,7 +37,7 @@
     function findUnassignedLocation(matrix, row, col) {
       for (; row < 9 ; col = 0, row++)
           for (; col < 9 ; col++)
-              if (grid[row][col] == 0)
+              if (matrix[row][col] == 0)
                   return [row, col];
       return [-1, -1];
   }
