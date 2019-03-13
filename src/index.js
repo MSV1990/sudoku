@@ -35,33 +35,12 @@
     
     
     function findUnassignedLocation(matrix, row, col) {
-    let done = false;
-    let res = [-1, -1];
-    
-    while (!done) {
-      if (row == 9) {
-          done = true;
-      }
-      else {
-          if (matrix[row][col] == 0) {
-              res[0] = row;
-              res[1] = col;
-              done = true;
-          }
-          else {
-              if (col < 8) {
-                  col++;
-              }
-              else {
-                  row++;
-                  col = 0;
-              }
-          }
-      }
-    }
-    
-    return res;
-    }
+      for (; row < 9 ; col = 0, row++)
+          for (; col < 9 ; col++)
+              if (grid[row][col] == 0)
+                  return [row, col];
+      return [-1, -1];
+  }
     
     function noConflicts(matrix, row, col, num) {
     return isRowOk(matrix, row, num) && isColOk(matrix, col, num) && isBoxOk(matrix, row, col, num);
